@@ -9,3 +9,7 @@ def root():
 @app.get("/outro-recurso")
 def pegar_recurso():
     return "message"
+
+@app.post("/outro-recurso/{id}")
+def criar_recurso():
+    return {"message": id}
