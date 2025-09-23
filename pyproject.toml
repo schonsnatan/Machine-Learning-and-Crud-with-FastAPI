@@ -1,19 +1,21 @@
-[project]
+[tool.poetry]
 name = "fastapi-project"
 version = "0.1.0"
 description = ""
-authors = [
-]
+authors = ["schonsnatan <natanschons@gmail.com>"]
 readme = "README.md"
-requires-python = ">=3.12"
-dependencies = [
-    "fastapi[standard] (>=0.116.2,<0.117.0)",
-    "uvicorn[standard] (>=0.35.0,<0.36.0)",
-    "requests (>=2.32.5,<3.0.0)",
-    "scikit-learn (>=1.7.2,<2.0.0)"
-]
+
+[tool.poetry.dependencies]
+python = "^3.12"
+fastapi = "^0.117.1"
+uvicorn = "^0.36.0"
+requests = "^2.32.5"
+joblib = "^1.5.2"
+scikit-learn = "^1.7.2"
+pydantic = "^2.11.9"
+aiohttp = "^3.12.15"
 
 
 [build-system]
-requires = ["poetry-core>=2.0.0,<3.0.0"]
+requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
