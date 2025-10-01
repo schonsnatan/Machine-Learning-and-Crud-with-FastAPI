@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from src.models.user import User
 
 app = FastAPI()
 
@@ -8,7 +9,7 @@ async def get_users(user_id: int):
     return 
 
 @app.post("/users")
-async def create_user(user):
+async def create_user(user: User):
     print("post")
     return 
 
@@ -18,6 +19,6 @@ async def delete_user(user_id: int):
     return 
 
 @app.put("/users{user_id}")
-async def update_user(user_id: int, user):
+async def update_user(user_id: int, user: User):
     print("update")
     return
