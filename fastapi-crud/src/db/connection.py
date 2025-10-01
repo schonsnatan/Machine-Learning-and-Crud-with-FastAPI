@@ -9,8 +9,16 @@ class PostgreSQLConnection:
         self.port = port
         self.conn = None
 
-    def connect():
-        pass
+    def connect(self):
+        try:
+            self.conn = psycopg2.connect(dbname = self.dbname, 
+                                         user=self.user, 
+                                         password = self.password, 
+                                         host = self.host, 
+                                         port = self.port)
+            print("Connected successfully")
+        except psycopg2.Error as e:
+            print()
 
     def select_user():
         pass
