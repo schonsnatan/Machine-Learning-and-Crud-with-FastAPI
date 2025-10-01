@@ -15,3 +15,6 @@ This project implements a FastAPI application to predict the estimated price of 
 - Once the server is running, you can access:
 - Swagger UI: http://127.0.0.1:8000/docs
 - Redoc: http://127.0.0.1:8000/redoc
+
+## Note
+*fastapi_tests* and *async* folders are just for test and learning purposes
