@@ -18,10 +18,21 @@ class PostgreSQLConnection:
                                          port = self.port)
             print("Connected successfully")
         except psycopg2.Error as e:
-            print()
+            print("Error connecting to Postgres:", e)
 
-    def select_user():
-        pass
+    def select_user(self, query):
+        if not self.conn:
+            print("You are not connected to the db.")
+            return None
+        try:
+            cursor = self.conn.cursor()
+            cursor.execute(query)
+            rows = cursor.fetchall()
+            cursor.close()
+            return rows
+        except psycopg2.Error as e:
+            print("Erorr executing the query: ", e)
+            return None
 
     def insert_user():
         pass
@@ -32,5 +43,7 @@ class PostgreSQLConnection:
     def update_user():
         pass
 
-    def close():
-        pass
+    def close(self):
+        if self.conn:
+            self.conn.close()
+            print("connection closed")
