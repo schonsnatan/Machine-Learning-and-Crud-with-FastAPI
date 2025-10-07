@@ -1,12 +1,21 @@
 from typing import Optional
 from pydantic import BaseModel
 
-class User(BaseModel):
-    id: int
+class UserBase(BaseModel):
+    name: Optional[str] = None
+    area: Optional[str] = None
+    job_description: Optional[str] = None
+    role: Optional[int] = None
+    salary: Optional[float] = None
+    is_active: Optional[bool] = None
+    last_evaluation: Optional[str] = None
+
+class UserCreate(UserBase):
+    id: int  
     name: str
-    area: str
-    job_description: str
-    role: int
-    salary: float
-    is_active: bool
-    last_evaluation:  Optional[str]
+
+class UserUpdate(UserBase):
+    pass
+
+class UserResponse(UserBase):
+    id: int
