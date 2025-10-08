@@ -2,25 +2,25 @@ import joblib
 from fastapi import FastAPI
 from pydantic import BaseModel
 
-class PrevisaoCasaRequest(BaseModel):
-    tamanho: int
-    quartos: int
-    n_vagas: int
+class PredictHouseRequest(BaseModel):
+    size: int
+    rooms: int
+    park_spaces: int
 
-class PrevisaoCasaResponse(BaseModel):
-    preco_estimado: float
+class PredictHouseResponse(BaseModel):
+    estimated_price: float
 
 app = FastAPI()
 
-modelo = joblib.load("modelo_casas.pkl")
+modelo = joblib.load("best_regression_model.pkl")
 
-@app.post("/prever/", response_model=PrevisaoCasaResponse)
-def prever_preco(casa: PrevisaoCasaRequest):
+@app.post("/predict/", response_model=PredictHouseResponse)
+def prever_preco(casa: PredictHouseRequest):
     
-    dados_entradaa = [[casa.tamanho, 
-                       casa.quartos, 
-                       casa.n_vagas]]
-    preco_estimado = modelo.predict(dados_entradaa)[0]
+    entry_data = [[casa.size, 
+                       casa.rooms, 
+                       casa.park_spaces]]
+    estimated_price = modelo.predict(entry_data)[0]
     return {
-        "preco_estimado": round(preco_estimado,2)
+        "estimated_price": round(float(estimated_price), 2)
     }

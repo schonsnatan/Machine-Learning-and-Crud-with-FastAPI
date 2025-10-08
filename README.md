@@ -10,6 +10,19 @@ This repo contains two main modules:
 - fastapi-ml — modules related to training, saving and serving the ML model
 - fastapi-crud — CRUD endpoints + persistence logic
 
+## 🧠 Machine Learning Component
+
+⚠️ The model used here is **not sophisticated**: it is a simple linear regression, trained on a small **synthetic dataset** created only for demonstration purposes.  
+
+The goal is **not to deliver high prediction performance**, but rather to showcase the full workflow of how a model can be:
+- trained,
+- saved to disk,
+- loaded by the API,
+- consumed via endpoints.
+
+In a real-world scenario, the model would be trained on more robust data, validated through MLOps pipelines, and deployed with proper production best practices.
+
+
 ## 📦 Tech Stack
 
 | Component                   | Purpose                                     |
